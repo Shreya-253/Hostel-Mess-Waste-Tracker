@@ -1,0 +1,380 @@
+/* Main color variables for easy customization */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --bg-color: #f9fafb;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --eat-color: #16a34a;
+  --skip-color: #ea580c;
+}
+
+/* Base page styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 24px 16px;
+  line-height: 1.5;
+}
+
+/* Centered container with max width of ~700px */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  padding: 28px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Simple header styling */
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.75rem;
+}
+
+.subtitle {
+  color: var(--muted-text);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Toggle buttons styled as a pair */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.view-toggle button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.view-toggle button:first-child {
+  border-radius: 6px 0 0 6px;
+  border-right: none;
+}
+
+.view-toggle button:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+/* Clear highlight on the active toggle button */
+.view-toggle button.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.view-toggle button:hover:not(.active) {
+  background-color: var(--bg-color);
+}
+
+/* Section styling */
+section {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+/* Date labels */
+#today-date,
+#dashboard-date {
+  color: var(--muted-text);
+  margin: 0 0 16px 0;
+  font-weight: 500;
+}
+
+/* Meal list and dashboard list containers */
+#meal-list,
+#dashboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Meal card styled as a clean white box */
+.meal-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Meal card info layout */
+.meal-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meal-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.meal-cutoff {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+/* Status badges (small rounded labels) */
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+/* Open badge: green */
+.badge-open {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+/* Locked badge: grey-red */
+.badge-locked {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Container for meal action buttons */
+.meal-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Meal choice button styling (at least 44px tall) */
+.choice-btn {
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.choice-btn:hover:not(:disabled) {
+  background-color: var(--bg-color);
+}
+
+/* Selected Eating button: green */
+.eat-btn.selected {
+  background-color: var(--eat-color);
+  border-color: var(--eat-color);
+  color: #ffffff;
+}
+
+.eat-btn.selected:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+/* Selected Skipping button: orange/red */
+.skip-btn.selected {
+  background-color: var(--skip-color);
+  border-color: var(--skip-color);
+  color: #ffffff;
+}
+
+.skip-btn.selected:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+/* Disabled choice buttons styling */
+.choice-btn:disabled {
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-color: var(--border-color);
+}
+
+/* Selected disabled buttons maintain faded green/orange tone */
+.eat-btn.selected:disabled {
+  background-color: var(--eat-color);
+  border-color: var(--eat-color);
+  color: #ffffff;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.skip-btn.selected:disabled {
+  background-color: var(--skip-color);
+  border-color: var(--skip-color);
+  color: #ffffff;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Save confirmation status */
+#save-status {
+  color: var(--eat-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 16px 0 0 0;
+  min-height: 20px;
+  line-height: 20px;
+}
+
+/* Demo limitation note */
+#clock-note {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  text-align: center;
+  margin: 8px 0 0 0;
+}
+
+/* Dashboard card styling */
+.dashboard-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.dashboard-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-meal-name {
+  margin: 0 0 4px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.dashboard-stat-line {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.dashboard-headcount {
+  text-align: right;
+  min-width: 120px;
+}
+
+/* Big bold headcount number in calm accent color */
+.headcount-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.1;
+}
+
+.headcount-label {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Savings box highlighted styling */
+#savings-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#savings-box h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+/* Three stats side by side in a row, wrapping on small screens */
+.savings-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--eat-color);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  margin-top: 4px;
+}
+
+/* Small grey note under stats */
+.savings-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none;
+}
